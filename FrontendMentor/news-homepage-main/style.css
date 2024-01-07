@@ -63,6 +63,7 @@ h6 {
 html {
     font-size: 15px;
     font-family: Inter, sans-serif;
+    position: relative;
 }
 
 .attribution {
@@ -77,6 +78,8 @@ html {
 .content-wrapper {
     max-width: 100ch;
     margin-inline: auto;
+    padding-inline: 2em;
+    overflow-x: hidden;
 }
 
 .header {
@@ -84,6 +87,11 @@ html {
     display: flex;
     place-content: space-between;
     align-items: center;
+
+}
+
+.header img[role="button"] {
+    display: none;
 }
 
 
@@ -224,8 +232,57 @@ nav>ul>li>a:hover {
     color: hsl(236, 13%, 42%);
     line-height: 1.5;
 }
+
 #other-articles h3:hover {
     color: hsl(35, 77%, 62%);
 }
 
-    
+.header input[type="checkbox"] {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    left: -1000px;
+}
+
+@media screen and (max-width:700px) {
+    .header img[role="button"] {
+        display: initial;
+    }
+
+    .header nav {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 15em;
+        background: white;
+        padding: 2em;
+        height: 100vh;
+        z-index: 10;
+    }
+
+    .header nav::before {
+        content: "";
+        position: absolute;
+        left: -100vw;
+        width: 100vw;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .header nav img[role="button"] {
+        float: right;
+    }
+
+    .header nav ul {
+        flex-direction: column;
+        margin-top: 10em;
+    }
+
+    .header input[type="checkbox"]:checked+nav {
+        display: initial;
+    }
+}
