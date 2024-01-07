@@ -285,4 +285,29 @@ nav>ul>li>a:hover {
     .header input[type="checkbox"]:checked+nav {
         display: initial;
     }
+
+    #main-article {
+        flex-direction: column;
+    }
+
+    #main-article>main a {
+        background-color: hsl(5, 85%, 63%);
+        text-decoration: none;
+    }
+
+    #main-article aside {
+        margin-left: 0;
+        margin-top: 2em;
+    }
+
+    #main-article>main>div {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    #other-articles {
+        flex-direction: column;
+        margin-bottom: 1em;
+
+    }
 }

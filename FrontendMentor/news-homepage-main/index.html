@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
@@ -15,9 +16,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <script>
+    function load() {
+      const nav = document.querySelector(".header nav");
+      nav.addEventListener("click", (e) => {
+        const rect = nav.getBoundingClientRect();
+        if (rect.left > e.x) {
+          document.querySelector('.header input[type="checkbox"]').checked ^= true;
+        }
+      });
+    };
+  </script>
 </head>
 
-<body>
+<body onload="load()">
   <div class="content-wrapper">
     <div class="header">
       <a>
@@ -63,8 +75,10 @@
     </div>
     <article id="main-article">
       <main>
-        <img src="assets/images/image-web-3-desktop.jpg" alt="artistic representation of Web 3.0">
-
+        <picture>
+          <source srcset="assets/images/image-web-3-mobile.jpg" media="(max-width:700px)">
+          <img src="assets/images/image-web-3-desktop.jpg" alt="artistic representation of Web 3.0">
+        </picture>
         <div>
           <h2>
             The Bright Future of Web 3.0?
