@@ -88,11 +88,11 @@ html {
 
 
 nav>ul {
-    font-size: 0.7rem;
+    font-size: 1rem;
     list-style: none;
     padding-left: 0;
     display: flex;
-    gap: 1em;
+    gap: 1.5em;
 
 }
 
@@ -202,6 +202,7 @@ nav>ul>li>a:hover {
 }
 
 #other-articles>article>img {
+    object-fit: cover;
     flex-shrink: 1;
     width: 10ch;
 }
