@@ -1,0 +1,208 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+html {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+}
+
+body {
+    max-width: 80ch;
+    margin-inline: auto;
+}
+
+#result {
+    background: linear-gradient(180deg, hsl(252, 100%, 67%) 0%, hsl(241, 81%, 54%) 100%);
+    color: white;
+    padding: 2em;
+    --radius: 20px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+#result h3 {
+    font-size: 1em;
+}
+
+#score {
+    border-radius: 100%;
+    background: linear-gradient(180deg, hsla(256, 72%, 46%, 1) 0%, hsla(241, 72%, 46%, 0) 100%);
+    height: 8.5em;
+    width: 8.5em;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding-top: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#score>span:first-child {
+    font-size: 3.5em;
+    font-weight: 800;
+}
+
+#score>span:nth-child(2) {
+    font-size: 1em;
+    color: hsl(241, 100%, 89%);
+}
+
+#classification {
+    font-size: 1.5em;
+}
+
+#result p {
+    font-size: 0.95em;
+    padding: 0.5em;
+    color: hsl(241, 100%, 89%);
+    text-align: center;
+}
+
+#summary {
+    padding: 1em 1.5em;
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    place-content: space-between;
+    padding: 0.8em;
+    --radius: 10px;
+    border-radius: var(--radius);
+    position: relative;
+    background: var(--background);
+}
+
+li::before {
+    --stroke: 2px;
+    --width: 12px;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--background);
+    filter: saturate(20);
+    border-radius: var(--radius);
+    padding: var(--stroke);
+    mask: linear-gradient(0deg, #000 calc(2*var(--stroke)), #0000 0) 50% var(--stroke)/calc(100% - 2*var(--width)) 100% repeat-y,
+        linear-gradient(-90deg, #000 calc(2*var(--stroke)), #0000 0) var(--stroke) 50%/100% calc(100% - 2*var(--width)) repeat-x,
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+}
+
+li img {
+    display: inline;
+    margin-bottom: -3px;
+}
+
+#summary .reaction {
+
+    color: hsl(0, 100%, 67%);
+    --background: hsla(0, 100%, 67%, 5%);
+}
+
+#summary .memory {
+    color: hsl(39, 100%, 56%);
+    --background: hsla(39, 100%, 56%, 5%);
+}
+
+#summary .verbal {
+    color: hsl(166, 100%, 37%);
+    --background: hsla(166, 100%, 37%, 5%);
+}
+
+#summary .visual {
+    color: hsl(234, 85%, 45%);
+    --background: hsla(234, 85%, 45%, 5%);
+
+}
+
+#summary .total {
+    color: hsla(224, 30%, 27%, 40%);
+}
+
+#summary .score {
+    color: black;
+    font-weight: 800;
+}
+
+button {
+    width: 100%;
+    background: hsl(224, 30%, 27%);
+    color: white;
+    border: none;
+    padding: 1em;
+    border-radius: 40px;
+}
