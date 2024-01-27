@@ -1,0 +1,184 @@
+/* CSS Reset from https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+body {
+    font-size: 22px;
+    font-family: Poppins;
+    background: hsl(0, 0%, 94%);
+    padding: 0.6em;
+}
+
+main {
+    max-width: 80ch;
+    margin-inline: auto;
+    background: white;
+    padding: 1.5em 1em;
+    border-radius: 1em 1em 4em 1em;
+
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+legend {
+    opacity: 0;
+}
+
+fieldset:hover legend,
+fieldset:focus-within legend {
+    opacity: 1;
+}
+
+#inputs>span {
+    width: 7ch;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+#inputs .invalid,
+#inputs .required {
+    font-size: 12px;
+    display: none;
+}
+
+#inputs>span:has(:invalid:not(:placeholder-shown)),
+#inputs[invalid=true] {
+    --color: red;
+    color: var(--color);
+
+    &> .invalid {
+        display: revert;
+    }
+}
+
+fieldset {
+    color: hsl(0, 1%, 44%);
+
+    span label,
+    legend {
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding-bottom: 0.4em;
+    }
+}
+
+
+
+#inputs span input {
+    padding: 0.5ch;
+    border-radius: 8px;
+    border: 1px solid var(--color, hsl(0, 0%, 86%));
+    font-weight: 700;
+}
+
+#calculate {
+    position: relative;
+    border-top: 2px solid hsl(0, 0%, 86%);
+    margin-block: 2em;
+}
+
+#calculate button {
+    position: absolute;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 100%;
+    width: 3em;
+    height: 3em;
+    background: hsl(259, 100%, 65%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+#calculate button svg {
+    width: 1.2em;
+}
+
+#calculate button svg g {
+    stroke-width: 3px;
+}
+
+#results {
+    font-style: italic;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.output {
+    color: hsl(259, 100%, 65%);
+}
+
+@media (min-width:600px) {
+    #calculate button {
+        left: 100%;
+        translate: -100% -50%;
+    }
+
+    body {
+        font-size: 32px;
+    }
+}
